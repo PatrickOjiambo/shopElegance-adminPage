@@ -1,5 +1,5 @@
 import pool from '../pool.js';
-
+const poolPromise = pool.promise();
 // Check the product id. Make sure the corresponding implementation elsewhere is okay.
 /**
  *
@@ -15,6 +15,7 @@ export function updateProduct (
   description,
   price,
   stock_quantity,
+  category_id,
   product_id
 ) {
   const updateProductQuery =

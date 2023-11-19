@@ -1,7 +1,12 @@
 import express from 'express';
 import { createProductController } from '../controller/Products/createProduct.js';
-import { upload, handleImageUpload } from '../middleware/imageUpload.js';
-
+import { upload} from '../middleware/imageUpload.js';
+import { deleteProductController } from '../controller/Products/deleteProduct.js';
+import { getAllProductsController } from '../controller/Products/getAllProducts.js';
+import { updateProductController } from '../controller/Products/updateProduct.js';
 const router = express.Router();
 router.post('/', upload.single('image'), createProductController);
+router.delete('/:product_id', deleteProductController);
+router.get('/', getAllProductsController);
+router.put('/:product_id', updateProductController);
 export default router;
