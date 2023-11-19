@@ -22,7 +22,6 @@ export async function createProduct(
   try {
     const createProductQuery =
       "INSERT INTO Products(name, description, price, stock_quantity, category_id) VALUES(?, ?, ?, ?, ?)";
-    console.log("This ran yess!!!");
     const productQuery = await poolPromise.query(createProductQuery, [
       name,
       description,
