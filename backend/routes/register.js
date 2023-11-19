@@ -1,7 +1,7 @@
 import express from 'express';
 import { body } from 'express-validator';
 import { validator } from '../middleware/validation.js';
-import { register } from '../controllers/authcontrollers.js';
+import { register } from '../controller/registerC.js';
 const router = express.Router();
 
 router.post('/', [
