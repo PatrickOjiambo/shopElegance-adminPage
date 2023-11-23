@@ -1,18 +1,30 @@
 import { useState } from 'react'
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import SideBar from './components/sidebar'
-
+import SideBar from "./components/sidebar"
+import Dashboard from './components/dashboard/dashboard';
+import Products from './components/products/products';
+import Orders from './components/orders/orders';
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
-  <div>
-<Router>
-
-</Router>
-  </div>
+    <div style={{ display: 'flex' }}>
+      <Router>
+        <SideBar style={{ flex: 1 }} />
+        
+        <div style={{ flex: 4 }}>
+          <Routes >
+            <Route path="/" element={<Dashboard />} />
+            <Route path="/products" element={<Products />} />
+            <Route path="/orders" element={<Orders />} />
+            <Route path="*" element={<h1>Not Found</h1>} />
+            <Route path="/login" element={<h1>Login</h1>} />
+            <Route path="/register" element={<h1>Register</h1>} />
+          </Routes>
+        </div>
+      </Router>
+    </div>
   )
 }
 
