@@ -1,5 +1,5 @@
 function Dashboard() {
-    return (<div className="mt-8">
+    return (<div className="">
         <p>This is the dashboard</p>
     </div>);
 }

@@ -11,6 +11,7 @@ export default {
         'hover-yellow': '#FFC42A',
         'sidebar-grey': '#CDCDCD',
         'sidebar-title': '#535353',
+        'background-grey': '#EDEDED',
       }
     },
   },

@@ -14,7 +14,8 @@ function App() {
         <SideBar style={{ flex: 1 }} />
         
         <div style={{ flex: 4 }}>
-          <Routes >
+         <div className='bg-background-grey h-full pt-8 pl-4'>
+           <Routes >
             <Route path="/" element={<Dashboard />} />
             <Route path="/products" element={<Products />} />
             <Route path="/orders" element={<Orders />} />
@@ -22,6 +23,7 @@ function App() {
             <Route path="/login" element={<h1>Login</h1>} />
             <Route path="/register" element={<h1>Register</h1>} />
           </Routes>
+         </div>
         </div>
       </Router>
     </div>
