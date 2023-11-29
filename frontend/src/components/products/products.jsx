@@ -6,6 +6,7 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import Button from '@mui/material/Button';
 import { IoCloudUploadSharp } from "react-icons/io5";
+import axios from 'axios';
 function Products() {
     const categoryInputId = useId();
     const [productDetails, setProductDetails] = useState({
@@ -40,19 +41,25 @@ function Products() {
     const handleSubmit = async (event) => {
         event.preventDefault();
         // Create a FormData object
+       
         let formData = new FormData();
         for (let key in productDetails) {
             formData.append(key, productDetails[key]);
         }
         try {
-            const response = await axios.post('http://localhost:4267/product', formData, {
+           console.log("response triggered");
+            const response = await axios.post('http://localhost:4345/product', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }
+                
             });
+            console.log("response triggered")
             console.log(response.data);
         } catch (error) {
-            console.error(error);
+            console.log(error)
+            console.log("error triggered")
+            
         }
     }
 

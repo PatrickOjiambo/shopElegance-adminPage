@@ -3,6 +3,12 @@ import { createProduct } from "../../models/ProductModels/createProduct.js";
 import { handleImageUpload } from "../../middleware/imageUpload.js";
 
 const poolPromise = pool.promise();
+/**
+ * Controller for creating a product
+ * @param {*} req 
+ * @param {*} res 
+ * @returns 
+ */
 export const createProductController = async (req, res) => {
   try {
     const { name, description, price, stock_quantity, category_name } =
@@ -18,8 +24,7 @@ export const createProductController = async (req, res) => {
       let category_id = categoryIdResult[0];
       category_id = category_id[0].category_id;
       const image_url = await handleImageUpload(req, res);
-      const imageFile = req.file;
-      const productResult = await createProduct(
+      await createProduct(
         name,
         description,
         parseFloat(price),
@@ -27,9 +32,9 @@ export const createProductController = async (req, res) => {
         category_id,
         image_url
       );
-      res.status(200).json({ message: "Product created successfully" });
+      return res.status(200).json({ message: "Product created successfully" }).end();
     }
   } catch (error) {
-    res.status(500).json({ error: "Error creating product" });
+    res.status(500).json({ error: error.message });
   }
 };

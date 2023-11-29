@@ -3,9 +3,8 @@ import multer from "multer";
 import multerS3 from "multer-s3";
 import { S3Client } from "@aws-sdk/client-s3";
 dotenv.config();
-
 const s3 = new S3Client({
-  region: "ap-south-1",
+  region: "us-east-1",
   credentials: {
     accessKeyId: process.env.ACCESSKEY,
     secretAccessKey: process.env.SECRETACCESSKEY,
@@ -14,8 +13,8 @@ const s3 = new S3Client({
 export const upload = multer({
   storage: multerS3({
     s3,
+    
     bucket: process.env.BUCKETNAME,
-    acl: "public-read",
     contentType: multerS3.AUTO_CONTENT_TYPE,
     key: function (req, file, cb) {
       cb(null, Date.now().toString());
@@ -34,9 +33,9 @@ export const handleImageUpload = (req, res) => {
   }
   const uploadedFile = req.file;
   const image_url = uploadedFile.location;
-  res
-  .status(200)
-  .json({ message: "Image successfully uploaded", url: image_url });
+  // res
+  // .status(200)
+  // .json({ message: "Image successfully uploaded", url: image_url });
   return image_url;
  
 };

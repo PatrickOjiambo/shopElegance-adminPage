@@ -1,5 +1,10 @@
 import {pool} from "../../models/pool.js";
-import {deleteProduct} from "../../models/Products/deleteProduct.js";
+import {deleteProduct} from "../../models/ProductModels/deleteProduct.js";
+/**
+ * For deleting a product
+ * @param {*} req 
+ * @param {*} res 
+ */
 export const deleteProductController = async (req, res) => {
     try{
         const {product_id} = req.params;

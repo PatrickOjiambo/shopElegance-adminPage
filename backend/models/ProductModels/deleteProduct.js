@@ -1,7 +1,7 @@
 import pool from '../pool.js';
 
 /**
- *
+ * Model for deleting a product
  * @param {string} product_id - The id of the product to be deleted
  */
 export function deleteProduct (product_id) {
@@ -16,4 +16,4 @@ export function deleteProduct (product_id) {
     });
   });
 }
-module.exports = { deleteProduct };
+
