@@ -54,11 +54,9 @@ function Products() {
                 }
                 
             });
-            console.log("response triggered")
             console.log(response.data);
         } catch (error) {
             console.log(error)
-            console.log("error triggered")
             
         }
     }

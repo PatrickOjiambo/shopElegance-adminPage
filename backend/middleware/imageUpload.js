@@ -13,12 +13,12 @@ const s3 = new S3Client({
 export const upload = multer({
   storage: multerS3({
     s3,
-    
     bucket: process.env.BUCKETNAME,
     contentType: multerS3.AUTO_CONTENT_TYPE,
     key: function (req, file, cb) {
       cb(null, Date.now().toString());
     },
+    acl: "public-read", // Set ACL to public-read for making objects publicly accessible
   }),
 });
 /**
@@ -37,5 +37,4 @@ export const handleImageUpload = (req, res) => {
   // .status(200)
   // .json({ message: "Image successfully uploaded", url: image_url });
   return image_url;
- 
 };
